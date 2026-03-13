@@ -6,26 +6,21 @@
     <title>RENDER WORKS - AR Preview</title>
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
     <style>
-        body { margin: 0; background-color: #f7f7f7; }
+        body { margin: 0; background-color: #f0f0f0; }
         model-viewer {
-            width: 100%;
+            width: 100vw;
             height: 100vh;
-            --poster-color: #ffffff;
         }
-        /* ARボタンの見た目を調整 */
-        #ar-button {
-            background-color: white;
-            border-radius: 30px;
-            border: none;
+        /* AndroidのARボタンを左上に逃がす設定 */
+        model-viewer::part(default-ar-button) {
             position: absolute;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            padding: 12px 24px;
-            font-weight: bold;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-            cursor: pointer;
-            z-index: 100;
+            top: 20px;
+            left: 20px;
+            bottom: auto;
+            right: auto;
+            background-color: white;
+            border-radius: 4px;
+            padding: 4px;
         }
     </style>
 </head>
@@ -39,13 +34,7 @@
         camera-controls 
         touch-action="pan-y"
         shadow-intensity="1"
-        exposure="1"
-        alt="RENDER WORKS 3D Model">
-        
-        <button slot="ar-button" id="ar-button">
-            👋 お部屋に置いてみる
-        </button>
-
+        alt="A 3D model of furniture">
     </model-viewer>
 
 </body>
